@@ -78,14 +78,38 @@
 		B4A8039529E5470D00C8A029 /* KeywordNews */ = {
 			isa = PBXGroup;
 			children = (
+				B4A803AA29E5516800C8A029 /* App */,
+				B4A803AB29E5516D00C8A029 /* Scenes */,
+				B4A803AC29E5519400C8A029 /* Resource */,
+			);
+			path = KeywordNews;
+			sourceTree = "<group>";
+		};
+		B4A803AA29E5516800C8A029 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				B4A8039629E5470D00C8A029 /* AppDelegate.swift */,
 				B4A8039829E5470D00C8A029 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B4A803AB29E5516D00C8A029 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
 				B4A8039A29E5470D00C8A029 /* ViewController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B4A803AC29E5519400C8A029 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
 				B4A8039F29E5470E00C8A029 /* Assets.xcassets */,
 				B4A803A129E5470E00C8A029 /* LaunchScreen.storyboard */,
 				B4A803A429E5470E00C8A029 /* Info.plist */,
 			);
-			path = KeywordNews;
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,7 +370,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7T7HF9QMND;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = KeywordNews/Info.plist;
+				INFOPLIST_FILE = KeywordNews/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -375,7 +399,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7T7HF9QMND;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = KeywordNews/Info.plist;
+				INFOPLIST_FILE = KeywordNews/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
