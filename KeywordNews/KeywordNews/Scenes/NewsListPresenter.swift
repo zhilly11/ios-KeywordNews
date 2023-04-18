@@ -15,16 +15,23 @@ final class NewsListPresenter: NSObject {
     
     init(viewController: NewsListProtocol?) {
         self.viewController = viewController
-        
-        super.init()
-        self.loadNews()
     }
     
-    private func loadNews() {
-        newsSearchManager.request(from: "IT",
-                                  start: 1,
-                                  display: 20) { [weak self] items in
-            self?.newsList += items
+    func didCalledRefresh() {
+        requestNewsList(isNeededToReset: true)
+    }
+    
+    func requestNewsList(isNeededToReset: Bool) {
+        if isNeededToReset {
+            currentPage = 0
+            newsList.removeAll()
+        }
+        
+        newsSearchManager.request(from: currentKeyword,
+                                  start: (currentPage * display) + 1,
+                                  display: display) { [weak self] newValue in
+            self?.newsList += newValue
+            self?.currentPage += 1
             self?.viewController?.reloadTableView()
             self?.viewController?.endRefresh()
         }
