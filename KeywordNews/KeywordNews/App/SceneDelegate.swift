@@ -13,7 +13,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         options connectionOptions: UIScene.ConnectionOptions
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let viewController = ViewController()
+        let viewController = NewsListViewController()
         
         window = UIWindow(windowScene: windowScene)
         window?.backgroundColor = .systemBackground
