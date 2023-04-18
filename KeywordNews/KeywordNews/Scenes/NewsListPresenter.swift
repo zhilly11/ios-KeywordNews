@@ -7,8 +7,12 @@ final class NewsListPresenter: NSObject {
     private let viewController: NewsListProtocol?
     private let newsSearchManager: NewsSearchManagerProtocol = NewsSearchManager()
     
+    private var currentKeyword = ""
+    private var currentPage: Int = 0
+    private let display: Int = 20
+    private let tags: [String] = ["IT", "아이폰", "개발", "개발자", "판교", "게임", "앱개발", "강남", "스타트업"]
     private var newsList: [News] = []
-
+    
     init(viewController: NewsListProtocol?) {
         self.viewController = viewController
         
