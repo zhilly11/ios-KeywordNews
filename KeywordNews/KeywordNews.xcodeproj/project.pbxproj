@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B45371722A0B783C00D1D67F /* NewsListTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45371712A0B783C00D1D67F /* NewsListTableViewHeaderView.swift */; };
 		B4A8039729E5470D00C8A029 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8039629E5470D00C8A029 /* AppDelegate.swift */; };
 		B4A8039929E5470D00C8A029 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8039829E5470D00C8A029 /* SceneDelegate.swift */; };
 		B4A8039B29E5470D00C8A029 /* NewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8039A29E5470D00C8A029 /* NewsListViewController.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		625051D372F030DEB9A0DC6C /* Pods_KeywordNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeywordNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B45371712A0B783C00D1D67F /* NewsListTableViewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsListTableViewHeaderView.swift; sourceTree = "<group>"; };
 		B4A8039329E5470D00C8A029 /* KeywordNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeywordNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A8039629E5470D00C8A029 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4A8039829E5470D00C8A029 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				B4A8039A29E5470D00C8A029 /* NewsListViewController.swift */,
 				B4A955BF29EE730C0070AD0B /* NewsListCell.swift */,
 				B4A955C429EE78240070AD0B /* NewsListPresenter.swift */,
+				B45371712A0B783C00D1D67F /* NewsListTableViewHeaderView.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				B4A8039929E5470D00C8A029 /* SceneDelegate.swift in Sources */,
 				B4A955C029EE730C0070AD0B /* NewsListCell.swift in Sources */,
 				B4A803B629E554C700C8A029 /* NewsSearchManagerProtocol.swift in Sources */,
+				B45371722A0B783C00D1D67F /* NewsListTableViewHeaderView.swift in Sources */,
 				B4A955C329EE73960070AD0B /* String+Extension.swift in Sources */,
 				B4A803B829E5571E00C8A029 /* NewsSearchAPIConst.swift in Sources */,
 				B4A955C529EE78240070AD0B /* NewsListPresenter.swift in Sources */,

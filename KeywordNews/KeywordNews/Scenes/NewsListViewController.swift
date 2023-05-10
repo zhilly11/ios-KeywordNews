@@ -21,6 +21,8 @@ final class NewsListViewController: UIViewController {
         
         tableView.register(NewsListCell.self,
                            forCellReuseIdentifier: NewsListCell.identifier)
+        tableView.register(NewsListTableViewHeaderView.self,
+                           forHeaderFooterViewReuseIdentifier: NewsListTableViewHeaderView.identifier)
         
         return tableView
     }()
@@ -33,7 +35,10 @@ final class NewsListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        refreshControl.addTarget(self,
+                                 action: #selector(didCalledRefresh),
+                                 for: .valueChanged)
+
         setupPresenter()
         presenter?.viewDidLoad()
     }
@@ -69,5 +74,11 @@ extension NewsListViewController: NewsListProtocol {
     
     func reloadTableView() {
         tableView.reloadData()
+    }
+}
+
+private extension NewsListViewController {
+    @objc func didCalledRefresh() {
+        presenter?.didCalledRefresh()
     }
 }

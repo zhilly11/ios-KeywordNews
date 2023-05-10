@@ -20,8 +20,6 @@ final class NewsListPresenter: NSObject {
     func viewDidLoad() {
         viewController?.setupNavigationBar()
         viewController?.setupLayout()
-        
-        requestNewsList(isNeededToReset: true)
     }
     
     func didCalledRefresh() {
@@ -46,7 +44,23 @@ final class NewsListPresenter: NSObject {
 }
 
 extension NewsListPresenter: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let news = newsList[indexPath.row]
+        viewController?.moveToNewsWebViewController(with: news)
+    }
     
+    func tableView(
+        _ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+            let currentRow = indexPath.row
+            
+            guard
+                (currentRow % 20) == display - 3 && (currentRow / display) == (currentPage - 1)
+            else {
+                return
+            }
+            
+            requestNewsList(isNeededToReset: false)
+        }
 }
 
 extension NewsListPresenter: UITableViewDataSource {
@@ -65,5 +79,21 @@ extension NewsListPresenter: UITableViewDataSource {
         cell?.setup(news: news)
         
         return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: NewsListTableViewHeaderView.identifier
+        ) as? NewsListTableViewHeaderView
+        header?.setup(tags: tags, delegate: self)
+        
+        return header
+    }
+}
+
+extension NewsListPresenter: NewsListTableViewHeaderViewDelegate {
+    func didSelectTag(_ selectedIndex: Int) {
+        currentKeyword = tags[selectedIndex]
+        requestNewsList(isNeededToReset: true)
     }
 }
