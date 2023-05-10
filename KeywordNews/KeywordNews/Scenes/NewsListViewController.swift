@@ -4,6 +4,14 @@
 import UIKit
 import SnapKit
 
+protocol NewsListProtocol {
+    func setupNavigationBar()
+    func setupLayout()
+    func endRefreshing()
+    func moveToNewsWebViewController(with news: News)
+    func reloadTableView()
+}
+
 final class NewsListViewController: UIViewController {
  
     private var presenter: NewsListPresenter?
@@ -27,8 +35,7 @@ final class NewsListViewController: UIViewController {
         super.viewDidLoad()
         
         setupPresenter()
-        setupNavigationBar()
-        setupView()
+        presenter?.viewDidLoad()
     }
     
     private func setupPresenter() {
@@ -37,8 +44,15 @@ final class NewsListViewController: UIViewController {
         tableView.dataSource = presenter
         tableView.refreshControl = refreshControl
     }
+}
+
+extension NewsListViewController: NewsListProtocol {
+    func setupNavigationBar() {
+        navigationItem.title = "NEWS"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
     
-    private func setupView() {
+    func setupLayout() {
         view.addSubview(tableView)
 
         tableView.snp.makeConstraints {
@@ -46,10 +60,14 @@ final class NewsListViewController: UIViewController {
         }
     }
     
-    private func setupNavigationBar() {
-        navigationItem.title = "NEWS"
-        navigationController?.navigationBar.prefersLargeTitles = true
+    func endRefreshing() {
+        refreshControl.endRefreshing()
     }
-}
+    
+    func moveToNewsWebViewController(with news: News) {
+    }
+    
+    func reloadTableView() {
+        tableView.reloadData()
     }
 }

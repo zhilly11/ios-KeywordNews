@@ -7,7 +7,7 @@ final class NewsListPresenter: NSObject {
     private let viewController: NewsListProtocol?
     private let newsSearchManager: NewsSearchManagerProtocol = NewsSearchManager()
     
-    private var currentKeyword = ""
+    private var currentKeyword = "IT"
     private var currentPage: Int = 0
     private let display: Int = 20
     private let tags: [String] = ["IT", "아이폰", "개발", "개발자", "판교", "게임", "앱개발", "강남", "스타트업"]
@@ -17,8 +17,15 @@ final class NewsListPresenter: NSObject {
         self.viewController = viewController
     }
     
-    func didCalledRefresh() {
+    func viewDidLoad() {
+        viewController?.setupNavigationBar()
+        viewController?.setupLayout()
+        
         requestNewsList(isNeededToReset: true)
+    }
+    
+    func didCalledRefresh() {
+        requestNewsList(isNeededToReset: false)
     }
     
     func requestNewsList(isNeededToReset: Bool) {
@@ -33,7 +40,7 @@ final class NewsListPresenter: NSObject {
             self?.newsList += newValue
             self?.currentPage += 1
             self?.viewController?.reloadTableView()
-            self?.viewController?.endRefresh()
+            self?.viewController?.endRefreshing()
         }
     }
 }
